@@ -9,16 +9,13 @@ def arboreal_stop(right, down, file_input=file_input):
     position = 0
     trees    = 0
 
-    for x, i in enumerate(track):
-        if x % down == 0:
-            if i[position] == '#':
-                trees += 1
+    for i in range(0, len(track), down):
+        if track[i][position] == '#':
+            trees += 1
 
-            position += right
-            if position >= len(i):
-                position = abs(position - len(i))
-        else:
-            pass
+        position += right
+        if position >= len(track[i]):
+            position = abs(position - len(track[i]))
 
     return trees
 
